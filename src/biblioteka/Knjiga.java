@@ -1,20 +1,23 @@
 package biblioteka;
 
+import java.util.Date;
+
 public class Knjiga {
     private int brojKnjige;
     private String imeKnjige;
-    private boolean statusKnjige;
+    private boolean izdata = false;
+    private Date datumIzdavanja;
     
     private static int ukupanBrojKnjiga;
 
     public Knjiga() throws Exception {
-	this(0, null, false);
+	this(0, null);
     }
     
-    public Knjiga(int brojKnjige, String imeKnjige, boolean statusKnjige) throws Exception {
+    public Knjiga(int brojKnjige, String imeKnjige) throws Exception {
 	setBrojKnjige(brojKnjige);
 	setImeKnjige(imeKnjige);
-	setStatusKnjige(statusKnjige);
+	
     }
 
     public int getBrojKnjige() {
@@ -37,16 +40,21 @@ public class Knjiga {
         this.imeKnjige = imeKnjige;
     }
 
-    public boolean isStatusKnjige() {
-        return statusKnjige;
+    public boolean isIzdata() {
+        return izdata;
     }
 
-    private void setStatusKnjige(boolean statusKnjige) throws Exception {
-	if(statusKnjige == false || statusKnjige == true) {
-        this.statusKnjige = statusKnjige;
-	} else {
-	    throw new Exception("Pogresan unos! (Dozvoljeno: false/true)");
-	}
+    public void setIzdata(boolean izdata) throws Exception {
+	this.izdata = izdata;
+	
+    }
+    
+    public Date getDatumIzdavanja() {
+        return datumIzdavanja;
+    }
+
+    public void setDatumIzdavanja(Date datumIzdavanja) {
+        this.datumIzdavanja = datumIzdavanja;
     }
 
     public static int getUkupanBrojKnjiga() {
@@ -55,7 +63,7 @@ public class Knjiga {
 
     @Override
     public String toString() {
-	return "Knjiga [brojKnjige=" + brojKnjige + ", imeKnjige=" + imeKnjige + ", statusKnjige=" + statusKnjige + "]";
+	return "Knjiga [brojKnjige=" + brojKnjige + ", imeKnjige=" + imeKnjige + ", izdata=" + izdata + ", datumIzdavanja=" + datumIzdavanja + "]";
     }
     
     

@@ -3,19 +3,18 @@ package biblioteka;
 public class Racun {
     private int brojRacuna;
     private String imeMusterije;
-    private int brojPosudjenihKnjiga;
+    private int brojPosudjenihKnjiga = 0;
 
     private static int ukupanBrojRacuna;
 
     public Racun() throws Exception {
-	this(0, null, 0);
+	this(0, null);
     }
 
-    public Racun(int brojRacuna, String imeMusterije, int brojPosudjenihKnjiga) throws Exception {
+    public Racun(int brojRacuna, String imeMusterije) throws Exception {
 	setBrojRacuna(brojRacuna);
 	setImeMusterije(imeMusterije);
-	setBrojPosudjenihKnjiga(brojPosudjenihKnjiga);
-
+	
 	ukupanBrojRacuna++;
     }
 
@@ -54,7 +53,7 @@ public class Racun {
 	return brojPosudjenihKnjiga;
     }
 
-    private void setBrojPosudjenihKnjiga(int brojPosudjenihKnjiga) throws Exception {
+    public void setBrojPosudjenihKnjiga(int brojPosudjenihKnjiga) throws Exception {
 	if (brojPosudjenihKnjiga <= 3) {
 	    this.brojPosudjenihKnjiga = brojPosudjenihKnjiga;
 	} else {
